@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bb2v8hp11c5pd"]
+
+[ext_resource type="Script" uid="uid://c8huipsukj01v" path="res://scenes/machine.gd" id="1_73k52"]
+[ext_resource type="Texture2D" uid="uid://6figf5icygy5" path="res://icon.svg" id="2_448ux"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i4f25"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_448ux")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Machine" type="Node2D" unique_id=2125783834]
+script = ExtResource("1_73k52")
+number_of_inputs = 3
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=955860094]
+sprite_frames = SubResource("SpriteFrames_i4f25")
