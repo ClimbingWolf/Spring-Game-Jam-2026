@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://crconxstbfdhq"]
 
-[ext_resource type="PackedScene" uid="uid://bb2v8hp11c5pd" path="res://scenes/machine.tscn" id="1_o5qli"]
+[ext_resource type="PackedScene" uid="uid://bb2v8hp11c5pd" path="res://scenes/machine/machine.tscn" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://dmo3a7xh5ils5" path="res://scenes/camera_2d.gd" id="1_sugp2"]
+[ext_resource type="PackedScene" uid="uid://cr21mkjutuakb" path="res://scenes/item.tscn" id="3_sugp2"]
 
 [node name="Main" type="Node2D" unique_id=1819478567]
 
@@ -9,3 +10,15 @@
 script = ExtResource("1_sugp2")
 
 [node name="Machine" parent="." unique_id=2125783834 instance=ExtResource("1_o5qli")]
+
+[node name="Item" parent="." unique_id=254934898 instance=ExtResource("3_sugp2")]
+position = Vector2(269, -21.999998)
+scale = Vector2(0.1, 0.1)
+
+[node name="Item2" parent="." unique_id=2036544880 instance=ExtResource("3_sugp2")]
+position = Vector2(248.99998, 69)
+scale = Vector2(0.1, 0.1)
+
+[node name="Item3" parent="." unique_id=673257007 instance=ExtResource("3_sugp2")]
+position = Vector2(96, -49.000004)
+scale = Vector2(0.1, 0.1)
