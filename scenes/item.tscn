@@ -3,19 +3,35 @@
 [ext_resource type="Texture2D" uid="uid://ct0xjihexn2ut" path="res://temporary_images/images (6).jpg" id="1_4gq7n"]
 [ext_resource type="Script" uid="uid://cpmgikhnw2hpe" path="res://scenes/item.gd" id="1_s8enn"]
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_s8enn"]
+friction = 0.0
+bounce = 1.0
+absorbent = true
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s8enn"]
-size = Vector2(128, 128)
+size = Vector2(123, 122)
 
 [node name="Item" type="Node2D" unique_id=254934898]
+z_index = 1
 script = ExtResource("1_s8enn")
 metadata/itemName = "apple"
+metadata/conveyorCount = 0
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1823118661]
+[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=1521793324]
+disable_mode = 2
+physics_material_override = SubResource("PhysicsMaterial_s8enn")
+gravity_scale = 0.0
+lock_rotation = true
+contact_monitor = true
+max_contacts_reported = 10
+linear_damp_mode = 1
+metadata/ready = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" unique_id=2038125679]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_s8enn")
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D" unique_id=1823118661]
 position = Vector2(-1.9073486e-06, -1.9073486e-06)
 scale = Vector2(0.5794393, 0.5254237)
 texture = ExtResource("1_4gq7n")
-
-[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=1521793324]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" unique_id=2038125679]
-shape = SubResource("RectangleShape2D_s8enn")

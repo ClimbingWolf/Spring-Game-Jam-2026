@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dsdkduw4enqeq"]
+
+[ext_resource type="PackedScene" uid="uid://bb2v8hp11c5pd" path="res://scenes/machine/machine.tscn" id="1_r6ikt"]
+[ext_resource type="SpriteFrames" uid="uid://wywglqynq074" path="res://sprites/press.tres" id="2_34too"]
+
+[node name="Press" type="Node2D" unique_id=1248727633]
+
+[node name="Machine" parent="." unique_id=2125783834 instance=ExtResource("1_r6ikt")]
+number_of_inputs = 2
+run_time_seconds = 5
+sprites = ExtResource("2_34too")
+input1_name = "apple"
+input2_name = "banana"
+outputName = "brick"

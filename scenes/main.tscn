@@ -1,24 +1,70 @@
 [gd_scene format=3 uid="uid://crconxstbfdhq"]
 
-[ext_resource type="PackedScene" uid="uid://bb2v8hp11c5pd" path="res://scenes/machine/machine.tscn" id="1_o5qli"]
+[ext_resource type="PackedScene" uid="uid://bxfg65of2736y" path="res://scenes/furnace.tscn" id="1_jyhfs"]
 [ext_resource type="Script" uid="uid://dmo3a7xh5ils5" path="res://scenes/camera_2d.gd" id="1_sugp2"]
 [ext_resource type="PackedScene" uid="uid://cr21mkjutuakb" path="res://scenes/item.tscn" id="3_sugp2"]
+[ext_resource type="PackedScene" uid="uid://biuilsfnmejlo" path="res://scenes/Conveyor.tscn" id="4_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://dsdkduw4enqeq" path="res://scenes/press.tscn" id="5_tbgi4"]
 
 [node name="Main" type="Node2D" unique_id=1819478567]
+
+[node name="Conveyor5" parent="." unique_id=1322827706 instance=ExtResource("4_jyhfs")]
+z_index = -1
+position = Vector2(-208, 109)
+rotationString = "left"
+
+[node name="Conveyor2" parent="." unique_id=162961922 instance=ExtResource("4_jyhfs")]
+z_index = -1
+position = Vector2(292, 91)
+rotationString = "left"
+
+[node name="Furnace" parent="." unique_id=1910839225 instance=ExtResource("1_jyhfs")]
+position = Vector2(50, 81)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1048793241]
 script = ExtResource("1_sugp2")
 
-[node name="Machine" parent="." unique_id=2125783834 instance=ExtResource("1_o5qli")]
-
 [node name="Item" parent="." unique_id=254934898 instance=ExtResource("3_sugp2")]
-position = Vector2(269, -21.999998)
-scale = Vector2(0.1, 0.1)
+position = Vector2(152, -186)
 
 [node name="Item2" parent="." unique_id=2036544880 instance=ExtResource("3_sugp2")]
-position = Vector2(248.99998, 69)
-scale = Vector2(0.1, 0.1)
+position = Vector2(-275, -177)
 
 [node name="Item3" parent="." unique_id=673257007 instance=ExtResource("3_sugp2")]
-position = Vector2(96, -49.000004)
-scale = Vector2(0.1, 0.1)
+position = Vector2(23.000002, -210.99998)
+
+[node name="Conveyor" parent="." unique_id=1266566545 instance=ExtResource("4_jyhfs")]
+z_index = -1
+position = Vector2(293, -166)
+
+[node name="Conveyor3" parent="." unique_id=359182300 instance=ExtResource("4_jyhfs")]
+z_index = -1
+position = Vector2(40, -166)
+rotationString = "right"
+
+[node name="Conveyor4" parent="." unique_id=1361489215 instance=ExtResource("4_jyhfs")]
+z_index = -1
+position = Vector2(-215, -166)
+rotationString = "right"
+
+[node name="Item4" parent="." unique_id=1307257428 instance=ExtResource("3_sugp2")]
+position = Vector2(-233, -180)
+
+[node name="Press" parent="." unique_id=1248727633 instance=ExtResource("5_tbgi4")]
+position = Vector2(-488, 89)
+
+[node name="Conveyor6" parent="." unique_id=288956598 instance=ExtResource("4_jyhfs")]
+z_index = -1
+position = Vector2(-489, -148)
+
+[node name="Item5" parent="." unique_id=1519797728 instance=ExtResource("3_sugp2")]
+position = Vector2(-489, -91)
+
+[node name="Item6" parent="." unique_id=319296193 instance=ExtResource("3_sugp2")]
+position = Vector2(-133, -205)
+
+[node name="Item7" parent="." unique_id=349596793 instance=ExtResource("3_sugp2")]
+position = Vector2(-490, -178.99998)
+
+[node name="Item8" parent="." unique_id=840526197 instance=ExtResource("3_sugp2")]
+position = Vector2(-488, -265)

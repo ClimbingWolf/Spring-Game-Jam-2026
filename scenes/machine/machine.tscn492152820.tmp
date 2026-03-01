@@ -1,40 +1,36 @@
 [gd_scene format=3 uid="uid://bb2v8hp11c5pd"]
 
 [ext_resource type="Script" uid="uid://c8huipsukj01v" path="res://scenes/machine/machine.gd" id="1_73k52"]
+[ext_resource type="Texture2D" uid="uid://6figf5icygy5" path="res://icon.svg" id="2_448ux"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ncy0m"]
-size = Vector2(112.5, 119)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_nh46g"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_i4f25"]
 animations = [{
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_448ux")
+}],
 "loop": true,
 "name": &"default",
 "speed": 5.0
-}, {
-"frames": [],
-"loop": true,
-"name": &"new_animation",
-"speed": 5.0
 }]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ncy0m"]
+size = Vector2(11, 127)
 
 [node name="Machine" type="Node2D" unique_id=2125783834]
 script = ExtResource("1_73k52")
 number_of_inputs = 3
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=955860094]
+sprite_frames = SubResource("SpriteFrames_i4f25")
+
 [node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=408200173]
 disable_mode = 2
-freeze = true
-freeze_mode = 1
 contact_monitor = true
 max_contacts_reported = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" unique_id=1115973210]
-position = Vector2(1.25, 1.5)
+position = Vector2(52, 1)
 shape = SubResource("RectangleShape2D_ncy0m")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=975992038]
-sprite_frames = SubResource("SpriteFrames_nh46g")
-animation = &"new_animation"
 
 [connection signal="body_entered" from="RigidBody2D" to="." method="_on_rigid_body_2d_body_entered"]

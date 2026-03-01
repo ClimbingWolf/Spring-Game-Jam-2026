@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://biuilsfnmejlo"]
+
+[ext_resource type="Script" uid="uid://bbwetrc2kk3l1" path="res://scenes/conveyor.gd" id="1_q3obc"]
+[ext_resource type="SpriteFrames" uid="uid://cmakhuoxlsrvr" path="res://sprites/conveyor.tres" id="2_yypod"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q3obc"]
+size = Vector2(16, 255)
+
+[node name="Conveyor" type="Node2D" unique_id=1322827706]
+script = ExtResource("1_q3obc")
+metadata/conveyor = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1881757201]
+sprite_frames = ExtResource("2_yypod")
+animation = &"down"
+frame_progress = 0.72276896
+
+[node name="CollisionRotator" type="Node2D" parent="." unique_id=750597201]
+
+[node name="Area2D" type="Area2D" parent="CollisionRotator" unique_id=267177708]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionRotator/Area2D" unique_id=1078872444]
+position = Vector2(1, -0.5)
+shape = SubResource("RectangleShape2D_q3obc")
+
+[connection signal="body_entered" from="CollisionRotator/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="CollisionRotator/Area2D" to="." method="_on_area_2d_body_exited"]
