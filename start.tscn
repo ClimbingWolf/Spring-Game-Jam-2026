@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://sfu3t31qpxbp"]
+
+[ext_resource type="Script" uid="uid://b14sk50ib2y1d" path="res://start.gd" id="1_y5hus"]
+[ext_resource type="Texture2D" uid="uid://8g854tc5mbpe" path="res://start.png" id="2_oiuna"]
+[ext_resource type="Script" uid="uid://ct5uouvxnrd" path="res://detector.gd" id="3_4a3qj"]
+[ext_resource type="Script" uid="uid://bac1l1km1l5rb" path="res://item_holder.gd" id="4_g38d0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_irbj6"]
+size = Vector2(16, 16)
+
+[node name="Start" type="Node2D" unique_id=643182632]
+script = ExtResource("1_y5hus")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=605552479]
+texture = ExtResource("2_oiuna")
+
+[node name="Timer" type="Timer" parent="." unique_id=11741800]
+autostart = true
+
+[node name="Detector" type="Area2D" parent="." unique_id=1740307011]
+script = ExtResource("3_4a3qj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detector" unique_id=586502420]
+position = Vector2(0, -32)
+shape = SubResource("RectangleShape2D_irbj6")
+
+[node name="ItemHolder" type="Node2D" parent="." unique_id=181600848]
+script = ExtResource("4_g38d0")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="detected" from="Detector" to="." method="_on_detector_detected"]
