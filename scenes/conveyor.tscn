@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://cyqgne76m8m7i"]
 
-[ext_resource type="Script" uid="uid://bnf2vf7sv5c5" path="res://conveyor.gd" id="1_m44ft"]
-[ext_resource type="Texture2D" uid="uid://ckuu7gcnvkog2" path="res://conveyor_placeholder.png" id="2_2jdux"]
-[ext_resource type="Script" uid="uid://ct5uouvxnrd" path="res://detector.gd" id="3_dqewr"]
-[ext_resource type="Script" uid="uid://bac1l1km1l5rb" path="res://item_holder.gd" id="4_4a5ni"]
+[ext_resource type="Script" uid="uid://bnf2vf7sv5c5" path="res://scripts/conveyor.gd" id="1_m44ft"]
+[ext_resource type="Texture2D" uid="uid://ckuu7gcnvkog2" path="res://assets/conveyor_placeholder.png" id="2_2jdux"]
+[ext_resource type="Script" uid="uid://ct5uouvxnrd" path="res://scripts/detector.gd" id="3_dqewr"]
+[ext_resource type="Script" uid="uid://bac1l1km1l5rb" path="res://scripts/item_holder.gd" id="4_4a5ni"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_stgnr"]
 size = Vector2(32, 32)

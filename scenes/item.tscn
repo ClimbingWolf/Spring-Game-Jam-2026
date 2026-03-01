@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://jeptelemf5cr"]
 
-[ext_resource type="Texture2D" uid="uid://byr7vfr8vpj07" path="res://tomato.png" id="1_8txok"]
+[ext_resource type="Texture2D" uid="uid://byr7vfr8vpj07" path="res://assets/tomato.png" id="1_8txok"]
 
 [node name="Item" type="Sprite2D" unique_id=422642447]
 scale = Vector2(0.5, 0.5)

@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://4pqund3nukl7"]
+
+[ext_resource type="Script" uid="uid://dt3nc4our1mgp" path="res://scripts/main.gd" id="1_tefeu"]
+[ext_resource type="Texture2D" uid="uid://3coolgwb8dn5" path="res://assets/end.png" id="2_o6xl0"]
+[ext_resource type="Script" uid="uid://cqxfmo3hixad1" path="res://scripts/tile_map_layer.gd" id="3_tipki"]
+[ext_resource type="PackedScene" uid="uid://58nyw6krcj1f" path="res://scenes/MachineDatabase.tscn" id="4_85g3d"]
+[ext_resource type="PackedScene" uid="uid://sfu3t31qpxbp" path="res://scenes/start.tscn" id="5_choun"]
+[ext_resource type="PackedScene" uid="uid://dgogtrm4743p0" path="res://scenes/end.tscn" id="6_ya4ey"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0hol4"]
+texture = ExtResource("2_o6xl0")
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_q6r6c"]
+sources/0 = SubResource("TileSetAtlasSource_0hol4")
+
+[node name="Main" type="Node2D" unique_id=1587218783]
+script = ExtResource("1_tefeu")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=645766864]
+tile_set = SubResource("TileSet_q6r6c")
+script = ExtResource("3_tipki")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1151775455]
+zoom = Vector2(4, 4)
+
+[node name="MachineDatabase" parent="." unique_id=297665339 instance=ExtResource("4_85g3d")]
+visible = false
+
+[node name="Machines" type="Node2D" parent="." unique_id=1771076406]
+
+[node name="Start" parent="Machines" unique_id=643182632 instance=ExtResource("5_choun")]
+
+[node name="End" parent="Machines" unique_id=2060792355 instance=ExtResource("6_ya4ey")]
+position = Vector2(-96, -32)

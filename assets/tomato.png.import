@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ckuu7gcnvkog2"
-path="res://.godot/imported/conveyor_placeholder.png-cfb7e2de2134258070a1ac9a6661cd95.ctex"
+uid="uid://byr7vfr8vpj07"
+path="res://.godot/imported/tomato.png-0703326d65793356cd32fc5ba3f82ec8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://conveyor_placeholder.png"
-dest_files=["res://.godot/imported/conveyor_placeholder.png-cfb7e2de2134258070a1ac9a6661cd95.ctex"]
+source_file="res://assets/tomato.png"
+dest_files=["res://.godot/imported/tomato.png-0703326d65793356cd32fc5ba3f82ec8.ctex"]
 
 [params]
 

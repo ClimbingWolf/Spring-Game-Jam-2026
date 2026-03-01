@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var item_path = load("res://item.tscn")
+@onready var item_path = load("res://scenes/item.tscn")
 @onready var detector = $Detector
 @onready var timer = $Timer
 @onready var item_holder = $ItemHolder
