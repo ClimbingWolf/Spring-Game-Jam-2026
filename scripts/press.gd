@@ -14,20 +14,17 @@ func setup():
 	match direction:
 		Direction.LEFT:
 			detector.position = Vector2(-32, 0)
-			sprite.play("left")
 		Direction.DOWN:
 			detector.position = Vector2(0, 32)
-			sprite.play("down")
 		Direction.UP:
 			detector.position = Vector2(0, -32)
-			sprite.play("up")
 		Direction.RIGHT:
 			detector.position = Vector2(32, 0)
-			sprite.play("right")
 			
 # sets sprite on ready
 func _ready() -> void:
 	setup()
+	item_holder.remove_items()
 	item_holder.speed = speed
 	sprite.speed_scale = speed / 30 * 2
 
@@ -37,6 +34,7 @@ func can_receive_item() -> bool:
 
 # receives item
 func receive_item(item: Node2D):
+	item.multiplier += 1
 	item_holder.receive_item(item)
 
 # if the detected signal activates, receive the next item

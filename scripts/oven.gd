@@ -8,6 +8,7 @@ enum Direction {LEFT, DOWN, UP, RIGHT}
 
 @export var direction: Direction = Direction.LEFT
 @export var speed: int = 30
+@export var give_value = 5
 
 # sets the sprite of the conveyor and offsets detector to where coneyor is facing
 func setup():
@@ -24,6 +25,7 @@ func setup():
 # sets sprite on ready
 func _ready() -> void:
 	setup()
+	item_holder.remove_items()
 	item_holder.speed = speed
 	sprite.speed_scale = speed / 30 * 2
 
@@ -33,7 +35,6 @@ func can_receive_item() -> bool:
 
 # receives item
 func receive_item(item: Node2D):
-	item.multiplier += 1
 	item_holder.receive_item(item)
 
 # if the detected signal activates, receive the next item
@@ -43,4 +44,8 @@ func _on_detector_detected(area: Area2D):
 
 # if item is held, detect if item can move
 func _on_item_holder_item_held():
+	var item = item_holder.get_item()
+	item.base_value += give_value
+	item.self_modulate = Color(0.5, 0.5, 0.5, 1.0)
+	sprite.play("default")
 	detector.detect()

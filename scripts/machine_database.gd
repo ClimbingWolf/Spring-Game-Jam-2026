@@ -11,7 +11,13 @@ func _ready() -> void:
 		remove_child(get_child(0))
 
 # used to lookup machine and set position
-func get_item(item_name, pos):
+func get_item(item_name):
+	if (machines.has(item_name)):
+		var machine = machines[item_name].duplicate()
+		return machine
+	return null
+	
+func get_item_and_place(item_name, pos):
 	if (machines.has(item_name)):
 		var machine = machines[item_name].duplicate()
 		machine.global_position = pos

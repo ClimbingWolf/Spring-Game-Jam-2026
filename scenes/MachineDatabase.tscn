@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://58nyw6krcj1f"]
 
 [ext_resource type="Script" uid="uid://hpgb1om1beye" path="res://scripts/machine_database.gd" id="1_miy4n"]
-[ext_resource type="PackedScene" uid="uid://cyqgne76m8m7i" path="res://scenes/conveyor.tscn" id="2_253h8"]
+[ext_resource type="PackedScene" uid="uid://dkc3bdcfgdumo" path="res://scenes/conveyor.tscn" id="2_253h8"]
 [ext_resource type="PackedScene" uid="uid://sfu3t31qpxbp" path="res://scenes/start.tscn" id="3_miy4n"]
 [ext_resource type="PackedScene" uid="uid://dgogtrm4743p0" path="res://scenes/end.tscn" id="4_miy4n"]
+[ext_resource type="PackedScene" uid="uid://t3hvd8k3siht" path="res://scenes/oven.tscn" id="5_8elga"]
+[ext_resource type="PackedScene" uid="uid://b5xdq8bwe58cs" path="res://scenes/press.tscn" id="6_cpw6g"]
 
 [node name="MachineDatabase" type="Node2D" unique_id=297665339]
 script = ExtResource("1_miy4n")
@@ -13,3 +15,7 @@ script = ExtResource("1_miy4n")
 [node name="Start" parent="." unique_id=643182632 instance=ExtResource("3_miy4n")]
 
 [node name="End" parent="." unique_id=2060792355 instance=ExtResource("4_miy4n")]
+
+[node name="Oven" parent="." unique_id=2069769651 instance=ExtResource("5_8elga")]
+
+[node name="Press" parent="." unique_id=1934624408 instance=ExtResource("6_cpw6g")]

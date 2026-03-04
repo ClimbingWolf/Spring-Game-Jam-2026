@@ -5,8 +5,9 @@
 [ext_resource type="Script" uid="uid://ct5uouvxnrd" path="res://scripts/detector.gd" id="3_dqewr"]
 [ext_resource type="Script" uid="uid://bac1l1km1l5rb" path="res://scripts/item_holder.gd" id="4_4a5ni"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_stgnr"]
-size = Vector2(32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_kr1pk"]
+atlas = ExtResource("2_osxxb")
+region = Rect2(0, 0, 32, 34)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_54w8r"]
 atlas = ExtResource("2_osxxb")
@@ -124,6 +125,14 @@ region = Rect2(0, 68, 32, 34)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_kr1pk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_54w8r")
 }, {
 "duration": 1.0,
@@ -227,21 +236,23 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_stgnr"]
+size = Vector2(32, 32)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_irbj6"]
 size = Vector2(16, 16)
 
-[node name="Conveyor2" type="Area2D" unique_id=1497201700]
+[node name="Conveyor" type="Area2D" unique_id=1497201700]
 script = ExtResource("1_m44ft")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2049217954]
-shape = SubResource("RectangleShape2D_stgnr")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1784708274]
 texture_filter = 1
 position = Vector2(0, -1.7881393e-06)
 scale = Vector2(1, 0.99999994)
 sprite_frames = SubResource("SpriteFrames_sd5g6")
-animation = &"left"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2049217954]
+shape = SubResource("RectangleShape2D_stgnr")
 
 [node name="Detector" type="Area2D" parent="." unique_id=1201105912]
 script = ExtResource("3_dqewr")

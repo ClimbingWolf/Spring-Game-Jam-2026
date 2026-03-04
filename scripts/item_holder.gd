@@ -4,6 +4,10 @@ var item_moving = false
 @export var speed = 30
 signal item_held
 
+func remove_items():
+	for item in get_children():
+		item.queue_free()
+
 # receives next item
 func receive_item(item: Node2D):
 	item.reparent(self, true)

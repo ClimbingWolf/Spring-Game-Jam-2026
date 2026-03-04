@@ -22,7 +22,6 @@ autostart = true
 script = ExtResource("3_4a3qj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detector" unique_id=586502420]
-position = Vector2(0, -32)
 shape = SubResource("RectangleShape2D_irbj6")
 
 [node name="ItemHolder" type="Node2D" parent="." unique_id=181600848]

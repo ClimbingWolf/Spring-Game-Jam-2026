@@ -7,9 +7,10 @@ extends Area2D
 enum Direction {LEFT, DOWN, UP, RIGHT}
 
 @export var direction: Direction = Direction.LEFT
+@export var speed: int = 30
 
 # sets the sprite of the conveyor and offsets detector to where coneyor is facing
-func set_direction():
+func setup():
 	match direction:
 		Direction.LEFT:
 			detector.position = Vector2(-32, 0)
@@ -26,7 +27,10 @@ func set_direction():
 			
 # sets sprite on ready
 func _ready() -> void:
-	set_direction()
+	setup()
+	item_holder.remove_items()
+	item_holder.speed = speed
+	sprite.speed_scale = speed / 30 * 2
 
 # checks if conveyor is already holding an item
 func can_receive_item() -> bool:

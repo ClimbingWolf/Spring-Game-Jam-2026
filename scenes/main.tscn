@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://4r20jks1e8ll" path="res://assets/selection.png" id="6_choun"]
 [ext_resource type="PackedScene" uid="uid://dgogtrm4743p0" path="res://scenes/end.tscn" id="6_ya4ey"]
 [ext_resource type="Script" uid="uid://dmdbxsieva11q" path="res://scripts/selection.gd" id="7_ya4ey"]
+[ext_resource type="Texture2D" uid="uid://cpsmeae6cjtar" path="res://assets/button.png" id="9_trceg"]
+[ext_resource type="Texture2D" uid="uid://bxdefwlwb07ii" path="res://assets/sprite_sheet.png" id="10_a8y0u"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_choun"]
 texture = ExtResource("2_o6xl0")
@@ -61,10 +63,22 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_a8y0u"]
+atlas = ExtResource("9_trceg")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jkv2x"]
+atlas = ExtResource("10_a8y0u")
+region = Rect2(288, 160, 16, 16)
+
 [node name="Main" type="Node2D" unique_id=1587218783]
 script = ExtResource("1_tefeu")
 
+[node name="Timer" type="Timer" parent="." unique_id=473985224]
+wait_time = 30.0
+
 [node name="Background" type="Sprite2D" parent="." unique_id=882195561]
+position = Vector2(0, -0.99999994)
 scale = Vector2(10, 10)
 texture = ExtResource("2_tipki")
 
@@ -86,7 +100,149 @@ sprite_frames = SubResource("SpriteFrames_trceg")
 script = ExtResource("7_ya4ey")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1151775455]
+z_index = 101
+zoom = Vector2(2, 2)
 script = ExtResource("6_85g3d")
+
+[node name="PointDisplay" type="Label" parent="Camera2D" unique_id=47878871]
+z_index = 100
+offset_left = -280.0
+offset_top = -156.0
+offset_right = -142.0
+offset_bottom = -101.0
+
+[node name="Button" type="Button" parent="Camera2D" unique_id=1943361430]
+visible = false
+offset_left = 193.00002
+offset_top = -154.00002
+offset_right = 457.0
+offset_bottom = 109.999985
+scale = Vector2(0.33, 0.33)
+focus_mode = 0
+icon = SubResource("AtlasTexture_a8y0u")
+
+[node name="Inventory" type="Control" parent="Camera2D" unique_id=272369460]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="1" type="TextureRect" parent="Camera2D/Inventory" unique_id=2112536239]
+texture_filter = 1
+layout_mode = 0
+offset_left = -180.0
+offset_top = 114.0
+offset_right = -140.0
+offset_bottom = 154.0
+texture = SubResource("AtlasTexture_jkv2x")
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D/Inventory/1" unique_id=981445741]
+position = Vector2(20, 20)
+scale = Vector2(0.8, 0.8)
+
+[node name="2" type="TextureRect" parent="Camera2D/Inventory" unique_id=398217967]
+texture_filter = 1
+layout_mode = 0
+offset_left = -140.0
+offset_top = 114.0
+offset_right = -100.0
+offset_bottom = 154.0
+texture = SubResource("AtlasTexture_jkv2x")
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D/Inventory/2" unique_id=442303245]
+position = Vector2(20, 20)
+scale = Vector2(0.8, 0.8)
+
+[node name="3" type="TextureRect" parent="Camera2D/Inventory" unique_id=95293855]
+texture_filter = 1
+layout_mode = 0
+offset_left = -100.0
+offset_top = 114.0
+offset_right = -60.0
+offset_bottom = 154.0
+texture = SubResource("AtlasTexture_jkv2x")
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D/Inventory/3" unique_id=340740174]
+position = Vector2(20, 20)
+scale = Vector2(0.8, 0.8)
+
+[node name="4" type="TextureRect" parent="Camera2D/Inventory" unique_id=1047430611]
+texture_filter = 1
+layout_mode = 0
+offset_left = -60.0
+offset_top = 114.0
+offset_right = -20.0
+offset_bottom = 154.0
+texture = SubResource("AtlasTexture_jkv2x")
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D/Inventory/4" unique_id=1616601156]
+position = Vector2(20, 20)
+scale = Vector2(0.8, 0.8)
+
+[node name="5" type="TextureRect" parent="Camera2D/Inventory" unique_id=827550576]
+texture_filter = 1
+layout_mode = 0
+offset_left = -20.0
+offset_top = 114.0
+offset_right = 20.0
+offset_bottom = 154.0
+texture = SubResource("AtlasTexture_jkv2x")
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D/Inventory/5" unique_id=1139499004]
+position = Vector2(20, 20)
+scale = Vector2(0.8, 0.8)
+
+[node name="6" type="TextureRect" parent="Camera2D/Inventory" unique_id=1526361130]
+texture_filter = 1
+layout_mode = 0
+offset_left = 20.0
+offset_top = 114.0
+offset_right = 60.0
+offset_bottom = 154.0
+texture = SubResource("AtlasTexture_jkv2x")
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D/Inventory/6" unique_id=1644676114]
+position = Vector2(20, 20)
+scale = Vector2(0.8, 0.8)
+
+[node name="7" type="TextureRect" parent="Camera2D/Inventory" unique_id=591583476]
+texture_filter = 1
+layout_mode = 0
+offset_left = 60.0
+offset_top = 114.0
+offset_right = 100.0
+offset_bottom = 154.0
+texture = SubResource("AtlasTexture_jkv2x")
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D/Inventory/7" unique_id=326227516]
+position = Vector2(20, 20)
+scale = Vector2(0.8, 0.8)
+
+[node name="8" type="TextureRect" parent="Camera2D/Inventory" unique_id=1443011247]
+texture_filter = 1
+layout_mode = 0
+offset_left = 100.0
+offset_top = 114.0
+offset_right = 140.0
+offset_bottom = 154.0
+texture = SubResource("AtlasTexture_jkv2x")
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D/Inventory/8" unique_id=700764939]
+position = Vector2(20, 20)
+scale = Vector2(0.8, 0.8)
+
+[node name="9" type="TextureRect" parent="Camera2D/Inventory" unique_id=851723157]
+texture_filter = 1
+layout_mode = 0
+offset_left = 140.0
+offset_top = 114.0
+offset_right = 180.0
+offset_bottom = 154.0
+texture = SubResource("AtlasTexture_jkv2x")
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D/Inventory/9" unique_id=733546018]
+position = Vector2(20, 20)
+scale = Vector2(0.8, 0.8)
 
 [node name="MachineDatabase" parent="." unique_id=297665339 instance=ExtResource("4_85g3d")]
 visible = false
@@ -94,9 +250,7 @@ visible = false
 [node name="Machines" type="Node2D" parent="." unique_id=1771076406]
 
 [node name="Start" parent="Machines" unique_id=643182632 instance=ExtResource("5_choun")]
-position = Vector2(64, 64)
-
-[node name="Start2" parent="Machines" unique_id=428997451 instance=ExtResource("5_choun")]
-position = Vector2(96, 64)
+position = Vector2(32, 0)
+direction = 1
 
 [node name="End" parent="." unique_id=2060792355 instance=ExtResource("6_ya4ey")]

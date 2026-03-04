@@ -7,7 +7,7 @@ extends Camera2D
 @export var max_distance = 768
 
 func _process(delta: float) -> void:
-	var mult = delta*wasd_speed* 1/zoom.x
+	var mult = delta * wasd_speed * 1 / zoom.x
 	
 	if position.length() > max_distance:
 		translate(-position.normalized() * mult)
@@ -20,10 +20,14 @@ func _process(delta: float) -> void:
 			translate(Vector2.LEFT * mult)
 		if(Input.is_action_pressed("right")):
 			translate(Vector2.RIGHT * mult)
+	
+	#$CanvasLayer/PointDisplay.scale = Vector2(zoom.x, zoom.y)
+	#$PointDisplay.scale = zoom
 		
 		
 func _input(event):
-	if event is InputEventMouseButton:
+	pass
+"	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
 			zoom /= Vector2(1,1) * zoom_scale
 		elif event.button_index == MOUSE_BUTTON_WHEEL_UP:
@@ -31,4 +35,4 @@ func _input(event):
 		if(zoom.x < min_zoom):
 			zoom = Vector2(1,1) * min_zoom
 		elif(zoom.x > max_zoom):
-			zoom = Vector2(1,1) * max_zoom
+			zoom = Vector2(1,1) * max_zoom"
