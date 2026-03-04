@@ -9,24 +9,24 @@ enum Direction {LEFT, DOWN, UP, RIGHT}
 @export var direction: Direction = Direction.LEFT
 
 # sets the sprite of the conveyor and offsets detector to where coneyor is facing
-func set_sprite():
+func set_direction():
 	match direction:
 		Direction.LEFT:
 			detector.position = Vector2(-32, 0)
-			sprite.frame = 0
+			sprite.play("left")
 		Direction.DOWN:
 			detector.position = Vector2(0, 32)
-			sprite.frame = 1
+			sprite.play("down")
 		Direction.UP:
 			detector.position = Vector2(0, -32)
-			sprite.frame = 2
+			sprite.play("up")
 		Direction.RIGHT:
 			detector.position = Vector2(32, 0)
-			sprite.frame = 3
+			sprite.play("right")
 			
 # sets sprite on ready
 func _ready() -> void:
-	set_sprite()
+	set_direction()
 
 # checks if conveyor is already holding an item
 func can_receive_item() -> bool:

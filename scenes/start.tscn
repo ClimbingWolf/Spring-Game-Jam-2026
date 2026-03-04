@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://sfu3t31qpxbp"]
 
 [ext_resource type="Script" uid="uid://b14sk50ib2y1d" path="res://scripts/start.gd" id="1_y5hus"]
-[ext_resource type="Texture2D" uid="uid://8g854tc5mbpe" path="res://assets/start.png" id="2_oiuna"]
+[ext_resource type="Texture2D" uid="uid://1e6un7ttnxov" path="res://assets/platform.png" id="2_kdmts"]
 [ext_resource type="Script" uid="uid://ct5uouvxnrd" path="res://scripts/detector.gd" id="3_4a3qj"]
 [ext_resource type="Script" uid="uid://bac1l1km1l5rb" path="res://scripts/item_holder.gd" id="4_g38d0"]
 
@@ -12,7 +12,8 @@ size = Vector2(16, 16)
 script = ExtResource("1_y5hus")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=605552479]
-texture = ExtResource("2_oiuna")
+texture_filter = 1
+texture = ExtResource("2_kdmts")
 
 [node name="Timer" type="Timer" parent="." unique_id=11741800]
 autostart = true

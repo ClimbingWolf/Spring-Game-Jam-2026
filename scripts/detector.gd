@@ -14,7 +14,9 @@ func _physics_process(delta: float) -> void:
 	# check if its free for the item to move
 	var areas = get_overlapping_areas()
 	for area in areas:
-		if area.can_receive_item():
-			emit_signal("detected", area)
-			detecting = false
-			break
+		
+		if area.name != "Detector":
+			if area.can_receive_item():
+				emit_signal("detected", area)
+				detecting = false
+				break
