@@ -9,19 +9,22 @@ var direction = 0
 var machines = {}
 var inventory = [null, null, null, null, null, null, null, null, null]
 
-var test = load("res://assets/mouth.png")
-
 # starter inventory
 func _ready() -> void:
 	inventory[0] = $MachineDatabase.get_item("Start")
-	inventory[1] = $MachineDatabase.get_item("Conveyor")
-	inventory[2] = $MachineDatabase.get_item("Conveyor")
+	var start2 = $MachineDatabase.get_item("Start")
+	start2.type = "banana"
+	var start3 = $MachineDatabase.get_item("Start")
+	start3.type = "orange"
+	inventory[1] = start2
+	inventory[2] = start3
 	inventory[3] = $MachineDatabase.get_item("Conveyor")
 	inventory[4] = $MachineDatabase.get_item("Conveyor")
-	inventory[5] = $MachineDatabase.get_item("Oven")
-	inventory[6] = $MachineDatabase.get_item("Press")
+	inventory[5] = $MachineDatabase.get_item("Conveyor")
+	inventory[6] = $MachineDatabase.get_item("Conveyor")
+	inventory[7] = $MachineDatabase.get_item("Press")
+	inventory[8] = $MachineDatabase.get_item("Oven")
 
-# move camera if selection is far enough
 func _process(delta: float) -> void:
 	var mouse_pos = get_local_mouse_position()
 	mouse_pos = Vector2(round(mouse_pos.x / 32), round(mouse_pos.y / 32))
@@ -33,7 +36,7 @@ func _process(delta: float) -> void:
 	points += $End.value_held
 	$End.value_held = 0
 	
-	$Camera2D/PointDisplay.text = str(points) + "/" + str(quota)
+	$Camera2D/PointDisplay.text = str(points)# + "/" + str(quota)
 	
 	for child in $"Camera2D/Inventory".get_children():
 		if child.name == str(machine_select):
@@ -55,8 +58,6 @@ func _process(delta: float) -> void:
 func place_selected():
 	if not machines.has(select):
 		if inventory[machine_select - 1] != null:
-			#var machine_name = inventory[machine_select - 1].get_name()
-			#var machine = $MachineDatabase.get_item(machine_name)
 			var machine = inventory[machine_select - 1]
 			inventory[machine_select - 1] = null
 			match direction:
@@ -79,7 +80,20 @@ func remove_selected():
 			inventory[machine_select - 1] = machines[select]
 			$Machines.remove_child(machines[select])
 			machines.erase(select)
-	
+			
+func selection_update():
+	var label = $Camera2D/NameLabel
+	var timer = $Camera2D/NameLabel/Timer
+	if(inventory[machine_select - 1] == null):
+		label.text = ""
+	else:
+		label.text = inventory[machine_select - 1].name
+	label.position = Vector2(get_node("Camera2D/Inventory/" + str(machine_select)).position.x - 84, 85)
+	label.visible = true
+	timer.start()
+	await(timer.timeout)
+	label.visible = false
+
 func _input(event):
 	if event.is_action_pressed("turn"):
 		direction += 1
@@ -97,11 +111,17 @@ func _input(event):
 		machine_select -= 1
 		if machine_select < 1:
 			machine_select = 9
+		selection_update()
 	if event.is_action_pressed("shift_right"):
 		machine_select += 1
 		if machine_select > 9:
 			machine_select = 1
+		selection_update()
 	if event.is_action_pressed("select"):
 		place_selected()
 	if event.is_action_pressed("cancel"):
 		remove_selected()
+	for i in range(1, 10):
+		if event.is_action_pressed(str(i)):
+			machine_select = i
+			selection_update()

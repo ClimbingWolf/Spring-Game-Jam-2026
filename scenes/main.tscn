@@ -6,11 +6,11 @@
 [ext_resource type="Texture2D" uid="uid://cewb7ckg0a1h2" path="res://assets/wall.png" id="3_85g3d"]
 [ext_resource type="Script" uid="uid://cqxfmo3hixad1" path="res://scripts/tile_map_layer.gd" id="3_tipki"]
 [ext_resource type="PackedScene" uid="uid://58nyw6krcj1f" path="res://scenes/MachineDatabase.tscn" id="4_85g3d"]
-[ext_resource type="PackedScene" uid="uid://sfu3t31qpxbp" path="res://scenes/start.tscn" id="5_choun"]
 [ext_resource type="Script" uid="uid://8i71gb37aacl" path="res://scripts/camera_2d.gd" id="6_85g3d"]
 [ext_resource type="Texture2D" uid="uid://4r20jks1e8ll" path="res://assets/selection.png" id="6_choun"]
 [ext_resource type="PackedScene" uid="uid://dgogtrm4743p0" path="res://scenes/end.tscn" id="6_ya4ey"]
 [ext_resource type="Script" uid="uid://dmdbxsieva11q" path="res://scripts/selection.gd" id="7_ya4ey"]
+[ext_resource type="FontFile" uid="uid://dq1w12irmyu30" path="res://assets/RussoOne-Regular.ttf" id="9_a8y0u"]
 [ext_resource type="Texture2D" uid="uid://cpsmeae6cjtar" path="res://assets/button.png" id="9_trceg"]
 [ext_resource type="Texture2D" uid="uid://bxdefwlwb07ii" path="res://assets/sprite_sheet.png" id="10_a8y0u"]
 
@@ -110,6 +110,24 @@ offset_left = -280.0
 offset_top = -156.0
 offset_right = -142.0
 offset_bottom = -101.0
+theme_override_fonts/font = ExtResource("9_a8y0u")
+
+[node name="NameLabel" type="RichTextLabel" parent="Camera2D" unique_id=1550168452]
+texture_filter = 3
+clip_contents = false
+offset_right = 209.0
+offset_bottom = 40.0
+theme_override_constants/outline_size = 4
+theme_override_fonts/normal_font = ExtResource("9_a8y0u")
+theme_override_font_sizes/normal_font_size = 14
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="Camera2D/NameLabel" unique_id=583860996]
+wait_time = 2.0
+one_shot = true
 
 [node name="Button" type="Button" parent="Camera2D" unique_id=1943361430]
 visible = false
@@ -248,9 +266,5 @@ scale = Vector2(0.8, 0.8)
 visible = false
 
 [node name="Machines" type="Node2D" parent="." unique_id=1771076406]
-
-[node name="Start" parent="Machines" unique_id=643182632 instance=ExtResource("5_choun")]
-position = Vector2(32, 0)
-direction = 1
 
 [node name="End" parent="." unique_id=2060792355 instance=ExtResource("6_ya4ey")]

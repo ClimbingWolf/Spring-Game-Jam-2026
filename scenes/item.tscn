@@ -1,10 +1,47 @@
 [gd_scene format=3 uid="uid://jeptelemf5cr"]
 
-[ext_resource type="Texture2D" uid="uid://byr7vfr8vpj07" path="res://assets/tomato.png" id="1_8txok"]
+[ext_resource type="Texture2D" uid="uid://b6qwxvyvgq0wv" path="res://assets/items.png" id="1_s8enn"]
 [ext_resource type="Script" uid="uid://cp36drvpss2v5" path="res://scripts/item.gd" id="2_s8enn"]
 
-[node name="Item" type="Sprite2D" unique_id=422642447]
+[sub_resource type="AtlasTexture" id="AtlasTexture_s8enn"]
+atlas = ExtResource("1_s8enn")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6muww"]
+atlas = ExtResource("1_s8enn")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vljjh"]
+atlas = ExtResource("1_s8enn")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ro5b8"]
+atlas = ExtResource("1_s8enn")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d265e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s8enn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6muww")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vljjh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ro5b8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Item" type="AnimatedSprite2D" unique_id=467883013]
 z_index = 2
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_8txok")
+texture_filter = 1
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_d265e")
 script = ExtResource("2_s8enn")

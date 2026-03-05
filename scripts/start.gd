@@ -10,7 +10,8 @@ enum Direction {LEFT, DOWN, UP, RIGHT}
 @export var direction: Direction = Direction.LEFT
 @export var base_value = 5
 @export var multiplier = 1
-@export var sprite = ""
+@export var speed: int = 30
+@export var type = "tomato"
 @export var create_items = true
 
 func setup():
@@ -27,13 +28,15 @@ func setup():
 func _ready() -> void:
 	setup()
 	item_holder.remove_items()
+	item_holder.speed = speed
+	timer.wait_time = speed / 30 / 2
+	timer.start()
 
 # if free to create new item, create one
 func _on_detector_detected(destination: Node2D) -> void:
-	print("hi2")
 	if create_items:
-		print("hi")
 		var item = item_path.instantiate()
+		item.type = type
 		item.base_value = base_value
 		item.multiplier = multiplier
 		item_holder.add_child(item)

@@ -6,12 +6,14 @@ signal item_held
 
 func remove_items():
 	for item in get_children():
+		remove_child(item)
 		item.queue_free()
 
 # receives next item
 func receive_item(item: Node2D):
-	item.reparent(self, true)
-	item_moving = true
+	if item != null:
+		item.reparent(self, true)
+		item_moving = true
 
 # gets the item that it is holding
 func get_item():

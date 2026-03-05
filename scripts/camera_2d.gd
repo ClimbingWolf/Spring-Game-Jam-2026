@@ -4,7 +4,7 @@ extends Camera2D
 @export var zoom_scale = 1.05
 @export var min_zoom = 1
 @export var max_zoom = 3
-@export var max_distance = 768
+@export var max_distance = 512
 
 func _process(delta: float) -> void:
 	var mult = delta * wasd_speed * 1 / zoom.x
